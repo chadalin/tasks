@@ -1,6 +1,9 @@
 <?php
 
-echo "file init";
-echo '</br>';
-phpinfo();
 ?>
+<DOCTYPE HTML>
+<HTML LANG="RU">
+  
+  
+  </HTML>
+  
