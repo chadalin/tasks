@@ -23,8 +23,8 @@ $statement = $pdo->prepare("SELECT * FROM tasks");
   					<thead>
   						<tr>
   							<th>id</th>
-  							<th>Title</th>
-  							<td>Foto</td>
+  							<th>Foto</th>
+  							<td>Title</td>
   								<td>Action</td>
   						</tr>
   					</thead>
@@ -33,10 +33,15 @@ $statement = $pdo->prepare("SELECT * FROM tasks");
   						<tr>
   							
   						<td><?= $task['id'];?></td>
-  						<td><?= $task['title'];?></td>
   						<td><div class="media">
-										 <img src="img/no-user.jpg" class="mr-3" alt="..." width="64" height="64">
+  							<?php if($task['img']==NULL){
+								echo $img = "<img src=\"img/no-user.jpg\" class=\"mr-3\" width=\"64\" height=\"64\">";
+  							}
+  							
+  							?>
 									</div></td>
+  						<td><?= $task['title'];?></td>
+  						
   						<td><a href="show.php?id=<?= $task['id'];?>" class="btn btn-info">Show</a></td>
   						<td><a href="edit.php?id=<?= $task['id'];?>" class="btn btn-warning">Edit</a></td>
   						<td><a href="delete.php?id=<?= $task['id'];?>" class="btn btn-danger">Delete</a></td>
