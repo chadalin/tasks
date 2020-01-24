@@ -18,13 +18,14 @@ $statement = $pdo->prepare("SELECT * FROM tasks");
   		<div class="row">
   			<div class="col-md-12">
   				<h1>Tasks</h1>
-  				<a href="create.php" class="btn btn-success">Add tasks</a>
+  				<a href="create.php" class="btn btn-success btn-lg">Add tasks</a>
   				<table class="table">
   					<thead>
   						<tr>
   							<th>id</th>
   							<th>Title</th>
-  							<td>Action</td>
+  							<td>Foto</td>
+  								<td>Action</td>
   						</tr>
   					</thead>
   					<tbody>
@@ -33,6 +34,9 @@ $statement = $pdo->prepare("SELECT * FROM tasks");
   							
   						<td><?= $task['id'];?></td>
   						<td><?= $task['title'];?></td>
+  						<td><div class="media">
+										 <img src="img/no-user.jpg" class="mr-3" alt="..." width="64" height="64">
+									</div></td>
   						<td><a href="show.php?id=<?= $task['id'];?>" class="btn btn-info">Show</a></td>
   						<td><a href="edit.php?id=<?= $task['id'];?>" class="btn btn-warning">Edit</a></td>
   						<td><a href="delete.php?id=<?= $task['id'];?>" class="btn btn-danger">Delete</a></td>
