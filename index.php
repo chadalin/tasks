@@ -3,14 +3,16 @@
 $pdo = new PDO ("mysql:host=localhost;dbname=ch35098_githab","ch35098_githab","m0t0r0la");
 $statement = $pdo->prepare("SELECT * FROM tasks");
       $statement->execute();
-      $tasks=$statement->fetchAll(PDO::FETCH_ASSOC);
+      $tasks =$statement->fetchAll(PDO::FETCH_ASSOC);
+      
 
-//var_dump($tasks);
+
 ?>
 <DOCTYPE HTML>
 <HTML LANG="RU">
   <head>
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="" crossorigin="anonymous">
+<img src="/assets/img/bootstrap.svg" alt="" width="32" height="32" title="Bootstrap">
 
   </head>
   <body>
