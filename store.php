@@ -1,17 +1,16 @@
 <?php 
 
-
+require("database/QueryBilder.php");
+$data = ['title' =>$_POST['title'],
+         'content'=> $_POST['content'],
+         'img'=> $_FILLE['name']];
+$db = new QueryBilder();
+$result = $db->store('tasks',$data);
 //var_dump($_POST);die;
- $pdo = new PDO ("mysql:host=localhost;dbname=ch35098_githab","ch35098_githab","m0t0r0la");
+ 
+header("Location:/githab/tasks/index.php");
 
-
- $sql = "INSERT INTO tasks (title, content) VALUES (:title,:content)";
- $statement =$pdo->prepare($sql);
- $statement->bindParam(":title", $_POST['title']);
- $statement->bindParam(":content", $_POST['content']);
-      $statement->execute();
-     //var_dump($statement);die;
-      session_start($_COKKIE['ok']);
-      header("Location:/githab/tasks/index.php");
+      
+      
       ?>
       

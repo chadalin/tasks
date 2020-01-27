@@ -22,15 +22,21 @@ $statement->bindParam(":id",$_GET['id']);
   				 <?php ?>
   				
   				<table class="table">
-  					<div class="media">
-  						 <img src="/githab/tasks/<?= $task['img'];?>"class="mr-3" alt="..." width="64" height="64" >
-  						
+  					<div class="media"><?php if ( $task['img']){ ?>
+  				     <img src="/githab/tasks/uploads/<?= $task['img'];?>" class="mr-3" width="64" height="64">
+  				      <?php
+  					}else{ ?>
+  		            	<img src="/githab/tasks/img/no-user.jpg" class="mr-3" width="64" height="64">
+  		            	<?php 
+  					}
+  					?>
   					</div>
   				<h1><?= $task['title'];?></h1>
   				<p><?= $task['content'];?></p>
   		    	<a href="/githab/tasks/index.php" class="btn btn-primary btn-lg">Bask</a>
   		    	<a href="/githab/tasks/create.php" class="btn btn-secondary btn-lg">Add tasks</a>
   		    	<a href="/githab/tasks/delete.php?id=<?= $task['id'];?>" class="btn btn-danger btn-lg">Delete</a>
+  		        
   				</table>
   				</div>
   		</div>

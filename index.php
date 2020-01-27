@@ -24,10 +24,10 @@ $statement = $pdo->prepare("SELECT * FROM tasks");
   				<table class="table">
   					<thead>
   						<tr>
-  							<th>id</th>
-  							<th>Foto</th>
-  							<td>Title</td>
-  								<td>Action</td>
+  							<th><a href="sort.php" class="link" >id</a></th>
+  								<th><a href="#" class="link" >Foto</a></th>
+  								<th><a href="#" class="link" >Titl</a></th>
+  									<th><a href="#" class="link" >Action</a></th>
   						</tr>
   					</thead>
   					<tbody>
@@ -35,13 +35,16 @@ $statement = $pdo->prepare("SELECT * FROM tasks");
   						<tr>
   							
   						<td><?= $task['id'];?></td>
-  						<td><div class="media">
-  							<?php if($task['img']==NULL){
-								echo $img = "<img src=\"img/no-user.jpg\" class=\"mr-3\" width=\"64\" height=\"64\">";
-  							}
-  							
-  							?>
-									</div></td>
+  						<td>	
+  					<div class="media"><?php if ( $task['img']){ ?>
+  				     <img src="/githab/tasks/uploads/<?= $task['img'];?>" class="mr-3" width="64" height="64">
+  				      <?php
+  					}else{ ?>
+  		            	<img src="/githab/tasks/img/no-user.jpg" class="mr-3" width="64" height="64">
+  		            	<?php 
+  					}
+  					?>
+  					</div></td>
   						<td><?= $task['title'];?></td>
   						
   						<td><a href="show.php?id=<?= $task['id'];?>" class="btn btn-info">Show</a></td>
