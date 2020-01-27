@@ -20,15 +20,17 @@ class QueryBilder
 	}
 	
 	
-	function getOne($table,$id)
-	{
-	   $sql = "SELECT * FROM $table WHERE id=:id";
-	   $statement = $this->pdo-prepare($sql);
-	   $statement->bindParam(":id",$id );
-	   $statement->execute($table);
-	   $result = $statement->fetch(PDO::FETCH_ASSOC);
-	   return $result;
-	}
+	// Вывод одной задачи
+    function getOne($table, $id)
+    {
+        $sql = "SELECT * FROM $table WHERE id=:id";
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindParam(":id", $id);
+        $statement->execute();
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
 	
 	function delet($table,$id)
 	{

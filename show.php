@@ -1,12 +1,11 @@
 <?php
 
-$pdo = new PDO ("mysql:host=localhost;dbname=ch35098_githab","ch35098_githab","m0t0r0la");
-$statement = $pdo->prepare("SELECT * FROM tasks WHERE id=:id");
-$statement->bindParam(":id",$_GET['id']);
-      $statement->execute();
-      $task=$statement->fetch(PDO::FETCH_ASSOC);
+require ("database/QueryBilder.php");
+$db = new QueryBilder();
 
-//var_dump($tasks);
+$task = $db->getOne("tasks",$_GET['id']);
+
+
 ?>
 <DOCTYPE HTML>
 <HTML LANG="RU">
@@ -19,7 +18,7 @@ $statement->bindParam(":id",$_GET['id']);
   		<div class="row">
   			<div class="col-md-12">
   				<h1>Tasks № <?= $task['id'];?><?= $task['title'];?></h1>
-  				 <?php ?>
+  				 <span><small><?= date( 'H:i:s', strtotime($message['created_at'])),"\n" ;?></small></span>
   				
   				<table class="table">
   					<div class="media"><?php if ( $task['img']){ ?>
@@ -31,7 +30,7 @@ $statement->bindParam(":id",$_GET['id']);
   					}
   					?>
   					</div>
-  				<h1><?= $task['title'];?></h1>
+  				
   				<p><?= $task['content'];?></p>
   		    	<a href="/githab/tasks/index.php" class="btn btn-primary btn-lg">Bask</a>
   		    	<a href="/githab/tasks/create.php" class="btn btn-secondary btn-lg">Add tasks</a>
