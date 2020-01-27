@@ -42,9 +42,8 @@ class QueryBilder
 	}
 	
 	
-	function store($table, $data)
 	
-	
+	function store($table, $data) 
 	{
 		
 	$keys = array_keys($data);
@@ -76,9 +75,7 @@ class QueryBilder
         //var_dump($sql);
 		$statement =$this->pdo->prepare($sql);
 	    $statement->execute($data);
-		//$statement->fetch(PDO::FETCH_ASSOC);
-		//var_dump($statement);
-	   //header("Location:/githab/tasks/index.php");
+
 		
 		
 	}

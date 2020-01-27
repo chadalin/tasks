@@ -1,11 +1,7 @@
 <?php
-
-$pdo = new PDO ("mysql:host=localhost;dbname=ch35098_githab","ch35098_githab","m0t0r0la");
-$statement = $pdo->prepare("SELECT * FROM tasks");
-      $statement->execute();
-      $tasks =$statement->fetchAll(PDO::FETCH_ASSOC);
-      
-
+ require "database/QueryBilder.php";
+$db = new QueryBilder();
+$tasks = $db->getAll('tasks');
 
 ?>
 <DOCTYPE HTML>
@@ -20,6 +16,11 @@ $statement = $pdo->prepare("SELECT * FROM tasks");
   		<div class="row">
   			<div class="col-md-12">
   				<h1>Tasks</h1>
+  				<?php if($task) {;?>
+  				<div class="alert alert-success" role="alert">
+                         A simple success alert—check it out!
+               </div>
+               <?php };?>
   				<a href="create.php" class="btn btn-success btn-lg">Add tasks</a>
   				<table class="table">
   					<thead>
