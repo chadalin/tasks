@@ -16,11 +16,22 @@ $tasks = $db->getAll('tasks');
   		<div class="row">
   			<div class="col-md-12">
   				<h1>Tasks</h1>
-  				<?php if($task) {;?>
+  			
+  				<?php if ($_COOKIE['ok']== 1) {;?>
   				<div class="alert alert-success" role="alert">
-                         A simple success alert—check it out!
+                          Задача успешно добавлена!
                </div>
                <?php };?>
+               
+               
+               <?php if ($_COOKIE['okDelete']== 1) {;?>
+  				<div class="alert alert-success" role="alert">
+                          Задача успешно удалена!
+               </div>
+               <?php };?>
+            
+               
+               
   				<a href="create.php" class="btn btn-success btn-lg">Add tasks</a>
   				<table class="table">
   					<thead>
